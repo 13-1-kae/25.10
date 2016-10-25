@@ -1,35 +1,35 @@
 import string
-f = open('../LICENSE')
-a = {}
+file = open('LICENSE')
+A = {}
 mytext = "test text for testing only text"
-s = f.read().split()
-for i in range(len(s)):
-    s[i] = s[i].lower()
-for i in range(len(s)):
-    k = ''
-    for j in s[i]:
+strng = file.read().split()
+for i in range(len(strng)):
+    strng[i] = strng[i].lower()
+for i in range(len(strng)):
+    tmp = ''
+    for j in strng[i]:
         if j not in string.punctuation:
-            k += j
+            tmp += j
         else:
-            k += ' '
-    s[i] = k
-k = ''
-for i in s:
-    k += i + ' '
-k = k.split()
-s = k
-print(k)
-for i in s:
-    if i not in a:
-        a[i] = 1
+            tmp += ' '
+    strng[i] = tmp
+tmp = ''
+for i in strng:
+    tmp += i + ' '
+tmp = tmp.split()
+strng = tmp
+print(tmp)
+for i in strng:
+    if i not in A:
+        A[i] = 1
     else:
-        a[i] += 1
-for i in a:
-    print(i, ':', a[i])
-maxi = 1
-maxi_word = ''
-for i in a:
-    if a[i] > maxi:
-        maxi = a[i]
-        maxi_word = i
-print('Max: ', maxi_word, '-', maxi)
+        A[i] += 1
+for i in A:
+    print(i, ':', A[i])
+index_max = 1
+max_word = ''
+for i in A:
+    if A[i] > index_max:
+        index_max = A[i]
+        max_word = i
+print('Max: ', max_word, '-', index_max)
